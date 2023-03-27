@@ -1,14 +1,14 @@
-import React from "react";
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
 import { Signup } from "./Api";
-import {useNavigate} from "react-router-dom";
-import {useRef} from 'react';
-const SignUp=()=> {
+import { useNavigate } from "react-router-dom";
+import { useRef } from "react";
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
+
+const SignUp = () => {
   const emailRef = useRef();
   const passwordRef = useRef();
   const confirmPasswordRef = useRef();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const signUpHandler = async (event) => {
     event.preventDefault();
@@ -22,16 +22,15 @@ const SignUp=()=> {
         password: enteredPassword,
         returnSecureToken: true,
       };
-      Signup(user);
+      await Signup(user);
       emailRef.current.value = "";
       passwordRef.current.value = "";
       confirmPasswordRef.current.value = "";
-      navigate('/Login', { replace: true });
-
+      navigate("/login");
     } else {
       alert("Please re-enter password");
     }
-  }
+  };
 
   return (
     <div className="signup">
@@ -60,8 +59,9 @@ const SignUp=()=> {
       </Form>
     </div>
   );
-}
+};
 
 export default SignUp;
+
 
 

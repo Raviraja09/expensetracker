@@ -1,6 +1,6 @@
 import React from "react";
 import { useRef } from "react";
-import {Link,useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { login } from "./Api";
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
@@ -22,14 +22,11 @@ function Login() {
       returnSecureToken: true,
     };
     const token = await login(user);
-      authActions.isAuthenticated({
-        token: token,
-        userId: enteredEmail,
-        isAuthenticated: true,
-      }
-    );
-    localStorage.setItem(enteredEmail, token)
-  }
+    if (token) {
+      localStorage.setItem(enteredEmail, token);
+      navigate("/welcome");
+    }
+  };
 
   return (
     <div className="login">
@@ -58,4 +55,5 @@ function Login() {
 }
 
 export default Login;
+
 
