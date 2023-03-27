@@ -82,3 +82,42 @@ export async function Signup(user) {
       return;
     }
   }
+  export async function deleteExpense(id) {
+    const url = `https://expense-tracker-54771-default-rtdb.firebaseio.com/expenses/${id}.json`;
+    try {
+      const response = await fetch(url, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      const data = await response.json();
+      if (!response.ok) {
+        throw data.error.message;
+      }
+    } catch (error) {
+      alert(error);
+      return;
+    }
+  }
+  
+  export async function editExpenses(id, updatedExpense) {
+    const url = `https://expense-tracker-54771-default-rtdb.firebaseio.com/expenses/${id}.json`;
+    try {
+      const response = await fetch(url, {
+        method: "PUT",
+        body: JSON.stringify(updatedExpense),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      const data = await response.json();
+      if (!response.ok) {
+        throw data.error.message;
+      }
+    } catch (error) {
+      alert(error);
+      return;
+    }
+  }
+  
