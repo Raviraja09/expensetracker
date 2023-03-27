@@ -30,6 +30,10 @@ function Login() {
       navigate("/welcome");
     }
   };
+  const logoutHandler = () => {
+    localStorage.removeItem(localStorage.key(0));
+    navigate("/");
+  };
 
   const sendVerificationEmail = async () => {
     const enteredEmail = emailRef.current.value;
@@ -64,17 +68,22 @@ function Login() {
         </Form.Group>
 
         <div className="d-flex justify-content-between align-items-center">
-          <Button variant="primary" type="submit">
-            Login
-          </Button>
-          {isEmailSent ? (
-            <div>Email sent!</div>
-          ) : (
-            <Button variant="secondary" onClick={sendVerificationEmail}>
-              Verify Email
-            </Button>
-          )}
-        </div>
+  <Button variant="primary" type="submit">
+    Login
+  </Button>
+  {isEmailSent ? (
+    <div>Email sent!</div>
+  ) : (
+    <React.Fragment>
+      <Button variant="secondary" onClick={sendVerificationEmail}>
+        Verify Email
+      </Button>
+      <Button variant="secondary" onClick={logoutHandler}>
+        Logout
+      </Button>
+    </React.Fragment>
+  )}
+</div>
       </Form>
     </div>
   );
