@@ -102,7 +102,7 @@ export async function Signup(user) {
   }
   
   export async function editExpenses(id, updatedExpense) {
-    const url = `https://expensetracker-c23d7-default-rtdb.firebaseio.com//expenses/${id}.json`;
+    const url = `https://expensetracker-c23d7-default-rtdb.firebaseio.com/expenses/${id}.json`;
     try {
       const response = await fetch(url, {
         method: "PUT",
