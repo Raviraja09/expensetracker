@@ -7,12 +7,12 @@ import ResetPassword from "./Components/ResetPassword";
 import { Signup } from "./Components/Api";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addExpeses, getData } from "./store/actions";
+import { addExpeses, getData } from "./Action";
 
 let isIntial = true;
 function App() {
   const userId = useSelector((state) => state.auth.userId);
-  const expenses = useSelector((state) => state.expenses);
+  const expenses = useSelector((state) => state.expensses);
   const dispacth = useDispatch();
 
   useEffect(() => {
