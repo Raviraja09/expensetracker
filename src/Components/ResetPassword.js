@@ -1,6 +1,6 @@
 import { Fragment, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import { ResetPassword } from "../Api/api";
+import { ResetPassword } from "./Api";
 
 function ResetPassword() {
   const emailRef = useRef();
