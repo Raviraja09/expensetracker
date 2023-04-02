@@ -39,7 +39,7 @@ export async function Signup(user) {
       return;
     }
   }
-  export async function ResetPassword(details) {
+  export async function ResetPasswordApi(details) {
     const url =
       "https://identitytoolkit.googleapis.com/v1/accounts:sendOobCode?key=AIzaSyA6Bh9-tRa9uPURWKUS7JJc9T04h1Dph3M";
     try {
@@ -120,4 +120,5 @@ export async function Signup(user) {
       return;
     }
   }
+ 
   

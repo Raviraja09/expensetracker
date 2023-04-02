@@ -1,16 +1,16 @@
 import { configureStore } from "@reduxjs/toolkit";
-import authReducer from "./authSlice";
-import expensesReducer from "./expensesSlice";
-import themeReducer from './themeSlice'
-import profileReducer from './profileSlice'
+import AuthReducer from "./AuthSlice";
+import ExpensesReducer from "./ExpensesSlice";
+import ThemeReducer from './ThemeSlice'
+import ProfileReducer from './ProfileSlice'
 
-const store = configureStore({
+const Store = configureStore({
   reducer: {
-    auth: authReducer,
-    expenses: expensesReducer,
-    theme: themeReducer,
-    profile: profileReducer
+    auth: AuthReducer,
+    expenses: ExpensesReducer,
+    theme: ThemeReducer,
+    profile: ProfileReducer
   },
 });
 
-export default store;
+export default Store;

@@ -7,7 +7,7 @@ const initialExpensesState = {
   total: 0,
 };
 
-const expensesSlice = createSlice({
+const ExpensesSlice = createSlice({
   name: "expenses",
   initialState: initialExpensesState,
   reducers: {
@@ -38,6 +38,6 @@ const expensesSlice = createSlice({
   },
 });
 
-export const expensesActions = expensesSlice.actions;
+export const expensesActions = ExpensesSlice.actions;
 
-export default expensesSlice.reducer;
+export default ExpensesSlice.reducer;

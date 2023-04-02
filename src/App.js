@@ -3,45 +3,47 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import SignUp from './Components/SignUp';
 import Login from './Components/Login'; 
 import Welcome from "./Components/Welcome";
-import ResetPassword from "./Components/ResetPassword";
-import { Signup } from "./Components/Api";
+import ResetPasswordForm from "./Components/ResetPasswordForm";
+import { getData, addExpenses } from "./Action";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addExpeses, getData } from "./Action";
 
-let isIntial = true;
+let isInitial = true;
+
 function App() {
   const userId = useSelector((state) => state.auth.userId);
-  const expenses = useSelector((state) => state.expensses);
-  const dispacth = useDispatch();
+  const expenses = useSelector((state) => state.expenses);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (userId) {
-      dispacth(getData(userId));
+      dispatch(getData(userId));
     }
-  }, [dispacth, userId]);
+  }, [dispatch, userId]);
+
   useEffect(() => {
-    if (isIntial) {
-      isIntial = false;
+    if (isInitial) {
+      isInitial = false;
       return;
     }
     if (userId) {
-      dispacth(addExpeses(expenses));
+      dispatch(addExpenses(expenses));
     }
-  }, [dispacth, expenses, userId]);
+  }, [dispatch, expenses, userId]);
 
-function App() {
   return (
     <Router>
         <Route path="/" element={<SignUp />} />
         <Route path="/Login" element={<Login />} />
-        <Route path="/SignUp" element={<Signup />} />
+        <Route path="/SignUp" element={<SignUp />} />
         <Route path="/welcome" element={<Welcome />} />
-        <Route path="/ResetPassword" element={<ResetPassword />} />
+        <Route path="/ResetPasswordForm" element={<ResetPasswordForm />} />
     </Router>
   );
 }
-}
+
 export default App;
+
+
 
 

@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialProfileState = {displayName: '', photoUrl: ''}
 
-const profileSlice = createSlice({
+const ProfileSlice = createSlice({
     name: 'profile',
     initialState: initialProfileState,
     reducers: {
@@ -13,6 +13,6 @@ const profileSlice = createSlice({
     }
 })
 
-export const profileActions = profileSlice.actions
+export const profileActions = ProfileSlice.actions
 
-export default profileSlice.reducer
+export default ProfileSlice.reducer

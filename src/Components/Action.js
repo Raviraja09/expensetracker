@@ -1,4 +1,4 @@
-import { expensesActions } from "./expensesSlice";
+import { expensesActions } from "./ExpensesSlice";
 
 export function getData(userId) {
   return async (dispacth) => {
